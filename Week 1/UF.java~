@@ -1,0 +1,17 @@
+public class UF {
+
+    public static void main(String args[]){
+        int N = StdIn.readInt();
+        UF uf = new UF(N);
+        int p;
+        int q;
+        while(!StdIn.isEmpty()){
+            p = StdIn.readInt();
+            q = StdIn.readInt();
+            if(!(uf.connected(p,q))){
+                uf.union(p,q);
+                System.out.println(p+ " " + q);
+            }
+        }
+    }
+}
