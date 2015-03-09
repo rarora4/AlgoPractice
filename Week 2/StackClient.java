@@ -1,12 +1,12 @@
 import StackQueue.LinkedStack;
-import StackQueue.FixedCapacityStack;
+import StackQueue.ArrayedStack;
 
 public class StackClient{
 
 	public static void main(String args[]){
 
 		//LinkedStack stack = new LinkedStack();
-		FixedCapacityStack stack = new FixedCapacityStack();
+		ArrayedStack stack = new ArrayedStack();
 
 		while(!StdIn.isEmpty()){
 			

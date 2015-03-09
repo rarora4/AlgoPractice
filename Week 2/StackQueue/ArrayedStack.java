@@ -1,11 +1,11 @@
 package StackQueue;
 
-public class FixedCapacityStack{
+public class ArrayedStack{
 
 	int N = 0;
 	private Object[] stack;
 
-	public FixedCapacityStack(){
+	public ArrayedStack(){
 		stack = new Object[1];
 	}
 
