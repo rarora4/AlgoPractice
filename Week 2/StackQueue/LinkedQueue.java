@@ -1,11 +1,11 @@
 package StackQueue;
 
-public class LinkedQueue{
+public class LinkedQueue<Item>{
 
 	private Node first, last;
 
 	private class Node{
-		Object item;
+		Item item;
 		Node next;
 	}
 
@@ -13,7 +13,7 @@ public class LinkedQueue{
 		return (first == null);
 	}
 
-	public void enqueue(Object item){
+	public void enqueue(Item item){
 		Node oldNode = last;
 		last = new Node();
 		last.item = item;
@@ -24,8 +24,8 @@ public class LinkedQueue{
 			oldNode.next = last;
 	}
 
-	public Object dequeue(){
-		Object item = first.item;
+	public Item dequeue(){
+		Item item = first.item;
 		first = first.next;
 		if(isEmpty())
 			last = null;

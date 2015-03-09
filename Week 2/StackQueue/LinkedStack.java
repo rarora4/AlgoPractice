@@ -1,11 +1,11 @@
 package StackQueue;
 
-public class LinkedStack{
+public class LinkedStack<Item>{
 
 	private Node first = null;
 
 	private class Node{
-		Object item;
+		Item item;
 		Node next;
 	}
 
@@ -13,15 +13,15 @@ public class LinkedStack{
 		return (first == null);
 	}
 
-	public void push(Object item){
+	public void push(Item item){
 		Node oldNode = first;
 		first = new Node();
 		first.item = item;
 		first.next = oldNode;
 	}
 
-	public Object pop(){
-		Object item = first.item;
+	public Item pop(){
+		Item item = first.item;
 		first = first.next;
 		return item;
 	}

@@ -1,20 +1,20 @@
 package StackQueue;
 
-public class ArrayedQueue{
+public class ArrayedQueue<Item>{
 
 	int N=0;
 	int head=0, tail=0;
-	private Object[] queue;
+	private Item[] queue;
 
 	public ArrayedQueue(){
-		queue = new Object[1];
+		queue = (Item[]) new Object[1];
 	}
 
 	public boolean isEmpty(){
 		return (N==0);
 	}
 
-	public void enqueue(Object item){
+	public void enqueue(Item item){
 		if(N==queue.length)
 			resize(2 * queue.length);
 		queue[tail++]=item;
@@ -22,9 +22,9 @@ public class ArrayedQueue{
 		System.out.println("head: "+ head + " tail: " + tail);
 	}
 
-	public Object dequeue(){
+	public Item dequeue(){
 		if(!isEmpty()){
-			Object item = queue[head++];
+			Item item = queue[head++];
 			queue[head-1] = null;
 			N--;
 			if((N >= 0) && (N == queue.length/4))
@@ -34,17 +34,15 @@ public class ArrayedQueue{
 		}
 		else
 			System.out.println("Stack is Empty");
-		return "";
+		return null;
 	}
 
 	private void resize(int newCapacity){
-		Object[] resized = new Object[newCapacity];
-		int k=0;
+		if(newCapacity == 0) newCapacity = 1;
+		Item[] resized = (Item[]) new Object[newCapacity];
 		System.out.println("New Capacity: " + newCapacity);
-		for(int i = 0; i < N; i++){
-			//if(queue[i] != null)
+		for(int i = 0; i < N; i++)
 				resized[i] = queue[i+head];
-		}
 		tail = N;
 		head = 0;
 		queue = resized;

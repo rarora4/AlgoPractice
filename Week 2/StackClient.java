@@ -5,8 +5,8 @@ public class StackClient{
 
 	public static void main(String args[]){
 
-		//LinkedStack stack = new LinkedStack();
-		ArrayedStack stack = new ArrayedStack();
+		//LinkedStack<String> stack = new LinkedStack<String>();
+		ArrayedStack<String> stack = new ArrayedStack<String>();
 
 		while(!StdIn.isEmpty()){
 			

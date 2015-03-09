@@ -1,27 +1,27 @@
 package StackQueue;
 
-public class ArrayedStack{
+public class ArrayedStack<Item>{
 
 	int N = 0;
-	private Object[] stack;
+	private Item[] stack;
 
 	public ArrayedStack(){
-		stack = new Object[1];
+		stack = (Item[]) new Object[1];
 	}
 
 	public boolean isEmpty(){
 		return (N == 0);
 	}
 
-	public void push(Object item){
+	public void push(Item item){
 		if(N==stack.length)
 			resize(2 * stack.length);
 		stack[N++]=item;
 	}
 
-	public Object pop(){
+	public Item pop(){
 		if(!isEmpty()){
-			Object item = stack[--N];
+			Item item = stack[--N];
 			stack[N] = null;
 			if((N > 0) && (N == stack.length/4))
 				resize((stack.length)/2);
@@ -29,11 +29,11 @@ public class ArrayedStack{
 		}
 		else
 			System.out.println("Stack is Empty");
-		return "";
+		return null;
 	}
 
 	private void resize(int newCapacity){
-		Object[] resized = new Object[newCapacity];
+		Item[] resized = (Item[]) new Item[newCapacity];
 		for(int i = 0; i < N; i++)
 			resized[i] = stack[i];
 		stack = resized;
