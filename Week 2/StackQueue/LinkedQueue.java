@@ -1,8 +1,8 @@
 package StackQueue;
 
-public class LinkedStack{
+public class LinkedQueue{
 
-	private Node first = null;
+	private Node first, last;
 
 	private class Node{
 		Object item;
@@ -13,16 +13,22 @@ public class LinkedStack{
 		return (first == null);
 	}
 
-	public void push(Object item){
-		Node oldNode = first;
-		first = new Node();
-		first.item = item;
-		first.next = oldNode;
+	public void enqueue(Object item){
+		Node oldNode = last;
+		last = new Node();
+		last.item = item;
+		last.next = null;
+		if(isEmpty())
+			first = last;
+		else
+			oldNode.next = last;
 	}
 
-	public Object pop(){
+	public Object dequeue(){
 		Object item = first.item;
 		first = first.next;
+		if(isEmpty())
+			last = null;
 		return item;
 	}
 }
